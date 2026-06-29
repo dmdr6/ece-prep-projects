@@ -34,7 +34,30 @@ A data conversion utility that translates memory addresses between standard Base
 
 ---
 
+## Project 4: Physical Environment Monitor (Raspberry Pi Pico W)
+### Overview
+A bare-metal hardware telemetry system using MicroPython on a physical Raspberry Pi Pico W microcontroller. This system reads real-time ambient data and triggers an audio/visual hardware alarm state if safety thresholds are exceeded.
+
+### Core Concepts
+* **Hardware Interfacing:** Reading streaming digital data from an external sensor using specialized Python modules (`dht`).
+* **GPIO Pin Manipulation:** Driving digital output pins high and low to control components like LEDs and active buzzers.
+* **Persistent Boot Execution:** Naming the file `main.py` so the controller executes the script automatically on boot when running on independent power.
+
+### Physical Circuit Setup
+![Physical Circuit Setup](circuit_setup.png)
+
+| Component Pin | Pico W GPIO Pin | Purpose |
+| :--- | :--- | :--- |
+| DHT11 VCC / + | 3V3 (Pin 36) | Power |
+| DHT11 Data / OUT | GP16 (Pin 21) | Digital Telemetry |
+| DHT11 GND / - | GND (Pin 38) | Ground |
+| LED Anode (+) | GP14 (Pin 19) via Resistor | Visual Alarm |
+| Active Buzzer (+) | GP15 (Pin 20) | Audio Alarm |
+
+---
+
 ## How to Run
 * **Run LED Blinker:** `python led_blink.py`
 * **Run Thermostat:** `python smart_thermostat.py`
 * **Run Register Converter:** `python hex_converter.py`
+* **Run Environment Monitor:** Open VS Code, connect to the Raspberry Pi Pico W using the MicroPico extension, and run `hardware_environment_monitor.py` (or save as `main.py` for standalone power bank operation).
