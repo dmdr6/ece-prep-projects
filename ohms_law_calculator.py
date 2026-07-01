@@ -5,13 +5,13 @@
 # Functions (math only)
 # Ohm's Law
 def calculate_voltage(resistance, current):
-    voltage = resistance * current
+    return resistance * current
 
 def calculate_current(resistance, voltage):
-    current = voltage / resistance
+    return voltage / resistance
 
 def calculate_resistance(current, voltage):
-    resistance = voltage / current
+    return voltage / current
 
 # Print the menu for the user to see the options
 print("Ohm's Law")
@@ -40,7 +40,7 @@ elif ohms_option_selected == "i":
 
     current = calculate_current(resistance, voltage)
 
-    print(f"Current: {current:.6f} A")
+    print(f"Current: {current:.6e} A")
 
 elif ohms_option_selected == "r":
     current = float(input("Enter Current (A): "))
